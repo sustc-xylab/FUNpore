@@ -7,6 +7,18 @@ version 1.0
 
 
 ###### Installation ########
+# pre-requisites for FUNpore 
+	ruby 2.3.1p112
+	samtools 1.9
+	R and library: foreach, doParallel, seqinr, plyr, data.table, Rsamtools
+	parallel
+
+# download the lastest FUNpore
+	
+	git clone https://github.com/sustc-xylab/FUNpore.git
+	
+	cd FUNpore
+
 Once download FUNpore package, all needed analysis is wrapped up in one executable named FUNpore.sh 
 The FUNpore_CONFIG contains the PATH for database required for FUNpore, this file should always be stored in the same directory with FUNpore.sh. 
 Before runing FUNpore, users should modify FUNpore_config with their specific database PATH
@@ -17,11 +29,7 @@ Before runing FUNpore, users should modify FUNpore_config with their specific da
 	taxator-tk, there is one copy of taxator-tk included in FUNpore package
 	KRAKEN, there is one copy of KRAKEN 0.10.6-unreleased included in FUNpore package
 
-# tools need to be installed before FUNpore run
-	ruby 2.3.1p112
-	samtools 1.9
-	R and library: foreach, doParallel, seqinr, plyr, data.table, Rsamtools
-	parallel
+
 	
 ###### Database to prepare before FUNpore run ######
 	1. LASTAL database: we recommend run lastal against NCBI refseq_protein database, you may download the blast-formatted refseq_protein database fron NCBI and then extract fasta from the blast-formatted database downloaded, finally build last index with refseq_protein
@@ -66,9 +74,11 @@ Before runing FUNpore, users should modify FUNpore_config with their specific da
 
 ##### Using FUNpore ########
 There are two steps to run FUNpore as below. Please NOTICE, since FUNpore will overwrite intermediate files from previous run, as a result, each working directory can only be used for ONE instance of FUNpore run. Additionally, please use bash instead of sh to initiate FUNpore.
+
 	step1 create a working directory for FUNpore run and copy the target fasta to the created directory
 		mkdir testdir 
 		cp test.fa testdir 
+		
 	step2 run FUNpore in the directory created, $PATH is the FUNpore installing directory 
 		cd testdir
 		bash $PATH_to_FUNpore/FUNpore.sh -f ./test.fa -t 20 -c 200000 > FUNpore.log
@@ -76,7 +86,7 @@ There are two steps to run FUNpore as below. Please NOTICE, since FUNpore will o
 
 
 *Citation:*
-if you use ARGpore in your nanopore dataset analysis please cite:
+if you use FUNpore in your nanopore dataset analysis please cite:
 Xia, Yu, An-Dong Li, Yu Deng, Xiao-Tao Jiang, Li-Guan Li, and Tong Zhang. MinION Nanopore Sequencing Enables Correlation between Resistome Phenotype and Genotype of Coliform Bacteria in Municipal Sewage. Frontiers in Microbiology 2017
 
 
