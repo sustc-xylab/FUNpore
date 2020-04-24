@@ -1,6 +1,6 @@
 # FUNpore
 
-FUNpore is designed to do **frame-shift correction of nanopore 1D/2D reads (fasta format)** and  then carried out taxonomic annotation of the corrected reads with **taxator-tk and KRAKEN**
+FUNpore is designed to do **frame-shift correction of nanopore 1D/2D reads (fasta format)** and  then carried out taxonomic annotation of the corrected reads with **taxator-tk and KRAKEN**. Please read this manual carefully to avoid unnecessary errors for FUNpore implementation.
 
 Author: Yu XIA 
 
