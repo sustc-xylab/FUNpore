@@ -26,7 +26,7 @@ Once download FUNpore package, all needed analysis is wrapped up in one executab
 
 The FUNpore_CONFIG contains the PATH for database required for FUNpore, this file should always be stored in the same directory with FUNpore.sh.
  
-Before runing FUNpore, users should modify FUNpore_config with their specific database PATH
+Before runing FUNpore, users should modify FUNpore_CONFIG with their specific database PATH
 
 ##### Tools supported out-of-the-box are
 	
@@ -38,27 +38,31 @@ Before runing FUNpore, users should modify FUNpore_config with their specific da
 
 	
 ### Database to prepare before FUNpore run 
+
+Downloading comprehensive database usually takes quite long time. please stay patient :)
+ 
 	** LASTAL database **
 	we recommend run lastal against NCBI refseq_protein database, you may download the blast-formatted refseq_protein database fron NCBI and then extract fasta from the blast-formatted database downloaded, finally build last index with refseq_protein
 		
 		1. download the blast-formatted refseq_protein database
 		
-			perl  update_blastdb.pl --passive --decompress refseq_protein
+			perl  $PATH_to_FUNpore/bin/update_blastdb.pl --passive --decompress refseq_protein
 		
 		2. extracted the fasta from the blast-formatted refseq_protein database
 		
-			blastdbcmd -db refseq_protein -dbtype prot -entry all -outfmt "%f"  -out refseq_protein.fa 
+			$PATH_to_FUNpore/bin/blastdbcmd -db refseq_protein -dbtype prot -entry all -outfmt "%f"  -out refseq_protein.fa 
 	
 		3. build last index with the fasta file extracted
 		
-			lastdb -Q 0 -P 50 -p -cR01 -v refseq_protein_lastdb refseq_protein.fa
+			$PATH_to_FUNpore/bin/last-938/src/lastdb -Q 0 -P 50 -p -cR01 -v refseq_protein_lastdb refseq_protein.fa
 		
-		4.specify the path and name of the last database in FUNpore_CONFIG 
+		4. specify the path and name of the last database in FUNpore_CONFIG 
 		
 	** NCBI nt database for BLAST+ and nodes.dmp of corresponding taxonomy ** 
-		1.download NCBI preformatted nt database with:
+		
+		1. download NCBI preformatted nt database with:
 			
-			perl  update_blastdb.pl --passive --decompress nt
+			perl  $PATH_to_FUNpore/bin/update_blastdb.pl --passive --decompress nt
 			
 		specify the name of the nt database in FUNpore_CONFIG
 		
@@ -72,9 +76,9 @@ Before runing FUNpore, users should modify FUNpore_config with their specific da
 		
 		To create the standard Kraken database, you can use the following command:
 		
-			FUNpore/bin/libexec/kraken/kraken-build --standard --threads 24 --db $DBNAME
+			$PATH_to_FUNpore/bin/libexec/kraken/kraken-build --standard --threads 24 --db $DBNAME
 		
-		Replace "$DBNAME" with your preferred database name/location.
+		Replace "$DBNAME" with your preferred database name/location. 
 		
 		specify the path of the KRAKEN database in FUNpore_CONFIG
 	
