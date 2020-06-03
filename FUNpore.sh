@@ -33,9 +33,9 @@ Example usage:
 	step1 create a working directory for FUNpore run and copy the target fasta to the created directory
 		mkdir testdir 
 		cp test.fa testdir 
-	step2 run FUNpore in the directory created, $PATH is the FUNpore installing directory 
+	step2 run FUNpore in the directory created
 		cd testdir
-		bash $PATH_to_FUNpore/FUNpore.sh -f ./test.fa -t 20 -c 200000 > FUNpore.log
+		bash FUNpore.sh -f ./test.fa -t 20 -c 200000 > FUNpore.log
 
 NOTICE: 
 	Make sure there is no previous intermediate files/directory exist in current working directory 
@@ -110,8 +110,6 @@ shift "$((OPTIND-1))"
 
 export LD_LIBRARY_PATH=${DIR}/bin/lib:$LD_LIBRARY_PATH
 export LDFLAGS="-L/${DIR}/bin/lib"
-
-
 
 
 echo "FUNpore is runing using parameters:
