@@ -308,7 +308,7 @@ echo "Done Frame-shift correction @ `date +"%Y-%m-%d %T"`"
 ###############################################################
 # taxonomy assignment of contig by taxator-tk ########################
 # taxator-tk is homology based on blastn search agaisnt nt ####
-out="classify_bin"
+out="taxator"
 BLASTDB=`grep "BLASTDB" ${DIR}/FUNpore_CONFIG | head -1 | sed 's/BLASTDB=//'`
 TAXDUMP=`grep "TAXDUMP" ${DIR}/FUNpore_CONFIG | head -1 | sed 's/TAXDUMP=//' | sed 's/"//g'`
 TAXDUMP2=`echo $TAXDUMP | sed 's/\/nodes.dmp//'`
@@ -333,7 +333,7 @@ fi
 echo "
 aligning $Query to ${BLASTDB} database with MEGABLAST. please be patient. You may check the progress in  ${out}/megablast_out.raw.tab
 "
-${DIR}/bin/blastn -task megablast -num_threads $N_threads\
+blastn -task megablast -num_threads $N_threads\
  -db ${BLASTDB}\
  -outfmt '6 qseqid qstart qend qlen sseqid staxids sstart send bitscore evalue nident length'\
  -query ${Query} > ${out}/megablast_out.raw.tab

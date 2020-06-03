@@ -15,6 +15,7 @@ version 1.0
 	samtools 1.9
 	R and library: foreach, doParallel, seqinr, plyr, data.table, Rsamtools
 	parallel
+	blast+ 2.8.1+ or higher
 
 ### Download the lastest FUNpore
 	
@@ -31,12 +32,9 @@ Before runing FUNpore, users should modify FUNpore_CONFIG with their specific da
 ##### Tools supported out-of-the-box are
 	
 	lastal, one copy of last-938 included in FUNpore package
-	blast+, one copy of BLAST 2.2.31+ included in FUNpore package
 	taxator-tk, one copy of taxator-tk included in FUNpore package
 	KRAKEN, one copy of KRAKEN 0.10.6-unreleased included in FUNpore package
 
-
-	
 ### Database to prepare before FUNpore run 
 
 Downloading comprehensive database usually takes quite long time. please stay patient :)
@@ -124,7 +122,7 @@ If you use FUNpore in your nanopore dataset analysis please cite:
 Xia, Y., Li, A.-D., Deng, Y., Jiang, X.-T., Li, L.-G., and Zhang, T. (**2017**) MinION Nanopore Sequencing Enables Correlation between Resistome Phenotype and Genotype of Coliform Bacteria in Municipal Sewage. *Front Microbiol* 8: 2105.
 
 Tools included in FUNpore should be also cited, these tools includes: 
-last, blast+, taxator-tk, kraken, samtools, GNU parallel.
+last, blast+, taxator-tk, kraken, samtools, GNU parallel, ruby, R 
 
 
 
