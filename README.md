@@ -122,6 +122,7 @@ If you use FUNpore in your nanopore dataset analysis please cite:
 Xia, Y., Li, A.-D., Deng, Y., Jiang, X.-T., Li, L.-G., and Zhang, T. (**2017**) MinION Nanopore Sequencing Enables Correlation between Resistome Phenotype and Genotype of Coliform Bacteria in Municipal Sewage. *Front Microbiol* 8: 2105.
 
 Tools included in FUNpore should be also cited, these tools includes: 
+
 last, blast+, taxator-tk, kraken, samtools, GNU parallel, ruby, R 
 
 
