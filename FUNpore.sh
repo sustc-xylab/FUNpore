@@ -6,6 +6,7 @@
 ##version 1.0
 set -e
 
+
 #### usage info ####
 show_help() {
 cat << EOF
@@ -106,6 +107,13 @@ fi
 
 shift "$((OPTIND-1))"
 
+
+export LD_LIBRARY_PATH=${DIR}/bin/lib:$LD_LIBRARY_PATH
+export LDFLAGS="-L/${DIR}/bin/lib"
+
+
+
+
 echo "FUNpore is runing using parameters:
 ------------------------------------------
 Input contigs: $Input_fa
@@ -113,6 +121,8 @@ Number of threads: $N_threads
 Number of query per parallel run: $cut
 ------------------------------------------
 "
+
+
 
 # subset the name of the $Input_fa, remove blank
 myarray=(`echo $Input_fa| tr "/" " "`)
