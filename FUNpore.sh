@@ -107,7 +107,7 @@ fi
 
 shift "$((OPTIND-1))"
 
-
+# lib for blast
 export LD_LIBRARY_PATH=${DIR}/bin/lib:$LD_LIBRARY_PATH
 export LDFLAGS="-L/${DIR}/bin/lib"
 
