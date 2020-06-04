@@ -6,7 +6,6 @@
 ##version 1.0
 set -e
 
-
 #### usage info ####
 show_help() {
 cat << EOF
@@ -308,7 +307,7 @@ echo "Done Frame-shift correction @ `date +"%Y-%m-%d %T"`"
 ###############################################################
 # taxonomy assignment of contig by taxator-tk ########################
 # taxator-tk is homology based on blastn search agaisnt nt ####
-out="taxator"
+out="classify_bin"
 BLASTDB=`grep "BLASTDB" ${DIR}/FUNpore_CONFIG | head -1 | sed 's/BLASTDB=//'`
 TAXDUMP=`grep "TAXDUMP" ${DIR}/FUNpore_CONFIG | head -1 | sed 's/TAXDUMP=//' | sed 's/"//g'`
 TAXDUMP2=`echo $TAXDUMP | sed 's/\/nodes.dmp//'`
@@ -349,7 +348,7 @@ cat ${out}/megablast_out.pruned.tab | cut -f 5,6 > ${out}/mapping.tax
 
 
 echo "pulling out classifications with taxator using megan-lca algorithm"
-cat ${out}/megablast_out.tab | ${DIR}/bin/taxator -a megan-lca -t 0.3 -e 0.00001 -g ${out}/mapping.tax -p 40 > ${out}/predictions.gff3
+cat ${out}/megablast_out.tab | ${DIR}/bin/taxator -a megan-lca -t 0.3 -e 0.00001 -g ${out}/mapping.tax -p $N_threads > ${out}/predictions.gff3
 
 echo "binning and consolidating classifications for each contig"
 sort -k1,1 ${out}/predictions.gff3 | ${DIR}/bin/binner -n classification -i genus:0.6 > ${out}/binned_predictions.txt

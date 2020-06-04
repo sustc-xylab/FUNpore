@@ -12,9 +12,10 @@ version 1.0
 ## Installation 
 ### Pre-requisites for FUNpore 
 	ruby 2.3.1p112
+	python2.7
 	samtools 1.9
 	R and library: foreach, doParallel, seqinr, plyr, data.table, Rsamtools
-	parallel
+	GNU parallel
 	blast+ 2.8.1+ or higher
 
 ### Download the lastest FUNpore
